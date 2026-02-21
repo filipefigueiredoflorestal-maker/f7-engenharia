@@ -152,18 +152,6 @@
             z-index: 1;
         }
 
-        .hero-badge {
-            display: inline-block;
-            background: var(--green-corporate);
-            color: var(--white);
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            letter-spacing: 1px;
-        }
-
         .hero h1 {
             font-size: 3.5rem;
             color: var(--white);
@@ -225,13 +213,6 @@
             margin-bottom: 1rem;
         }
 
-        .section-header p {
-            color: var(--gray-medium);
-            font-size: 1.1rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
         .section-divider {
             width: 80px;
             height: 4px;
@@ -242,7 +223,7 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
             max-width: 1400px;
             margin: 0 auto;
@@ -257,18 +238,8 @@
             border-top: 4px solid var(--green-corporate);
             position: relative;
             overflow: hidden;
-        }
-
-        .service-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 100px;
-            height: 100px;
-            background: var(--green-corporate);
-            opacity: 0.05;
-            border-radius: 0 0 0 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         .service-card:hover {
@@ -298,10 +269,21 @@
             margin-bottom: 1rem;
         }
 
-        .service-card p {
-            color: var(--gray-medium);
+        .service-card ul {
+            list-style: none;
+            text-align: left;
+        }
+
+        .service-card li {
             font-size: 0.95rem;
-            line-height: 1.7;
+            color: var(--gray-medium);
+            margin-bottom: 0.8rem;
+            display: flex;
+            gap: 8px;
+        }
+
+        .service-card li b {
+            color: var(--green-corporate);
         }
 
         /* About Section */
@@ -338,29 +320,6 @@
             font-size: 1.05rem;
             line-height: 1.8;
             margin-bottom: 1.5rem;
-        }
-
-        .about-highlights {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-top: 2rem;
-        }
-
-        .about-highlight {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .about-highlight i {
-            color: var(--green-corporate);
-            font-size: 1.2rem;
-        }
-
-        .about-highlight span {
-            font-weight: 500;
-            color: var(--gray-lead);
         }
 
         .about-image {
@@ -436,19 +395,9 @@
             background: var(--gray-light);
         }
 
-        .faq-question h4 {
-            font-size: 1.1rem;
-            color: var(--gray-lead);
-            font-weight: 600;
-        }
-
-        .faq-question i {
-            color: var(--green-corporate);
-            transition: transform 0.3s;
-        }
-
-        .faq-item.active .faq-question i {
-            transform: rotate(180deg);
+        .faq-item.active .faq-answer {
+            padding: 0 30px 25px;
+            max-height: 200px;
         }
 
         .faq-answer {
@@ -456,11 +405,6 @@
             max-height: 0;
             overflow: hidden;
             transition: all 0.3s;
-        }
-
-        .faq-item.active .faq-answer {
-            padding: 0 30px 25px;
-            max-height: 200px;
         }
 
         .faq-answer p {
@@ -512,10 +456,6 @@
         .footer-contact-item i {
             color: var(--green-corporate);
             font-size: 1.1rem;
-        }
-
-        .footer-contact-item span {
-            color: #d0d0d0;
         }
 
         .footer-links h4 {
@@ -617,79 +557,25 @@
 
         /* Responsive */
         @media (max-width: 1024px) {
-            .about-container {
-                grid-template-columns: 1fr;
-            }
-
-            .about-image {
-                order: -1;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr 1fr;
-            }
+            .about-container { grid-template-columns: 1fr; }
+            .about-image { order: -1; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
         }
 
         @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-subtitle {
-                font-size: 1rem;
-            }
-
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .about-highlights {
-                grid-template-columns: 1fr;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                text-align: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .section-header h2 {
-                font-size: 2rem;
-            }
-
-            .about-image-main {
-                height: 350px;
-            }
+            .nav-links { display: none; }
+            .mobile-menu-btn { display: block; }
+            .hero h1 { font-size: 2.5rem; }
+            .services-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
         <div class="nav-container">
             <div class="logo">
-                <div class="logo-icon">
-                    <i class="fas fa-mountain"></i>
-                </div>
-                <div class="logo-text"><span style="color:#4A5D45">F7</span> Engenharia & Consultoria</div>
+                <div class="logo-icon"><i class="fas fa-mountain"></i></div>
+                <div class="logo-text"><span>F7</span> Engenharia & Consultoria</div>
             </div>
             <ul class="nav-links">
                 <li><a href="#servicos">Serviços</a></li>
@@ -697,110 +583,88 @@
                 <li><a href="#faq">FAQ</a></li>
                 <li><a href="#contato" class="nav-cta">Consultar Especialista</a></li>
             </ul>
-            <button class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
         </div>
     </nav>
 
-    <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>F7 Engenharia & Consultoria <span style="color:#4A5D45">Meio Ambiente</span>, <span style="color:#4A5D45">Mineração</span> e <span style="color:#4A5D45">Indústria</span></h1>
-            <p class="hero-subtitle">Mais de <span style="color:#4A5D45">30 anos</span> de solidez em gestão ambiental, SSO e sustentabilidade. Experiência consolidada em ambientes regulatórios complexos.</p>
+            <h1>F7 Engenharia & Consultoria <span>Meio Ambiente</span>, <span>Mineração</span> e <span>Indústria</span></h1>
+            <p class="hero-subtitle">Mais de <span>30 anos</span> de solidez em gestão ambiental, SSO e sustentabilidade.</p>
             <p class="hero-crea">Rosan Figueirêdo, CEO (CREA-RJ: 134054/D)</p>
             <a href="#contato" class="hero-cta">Consultar Especialista</a>
         </div>
     </section>
 
-    <!-- Services Section -->
     <section class="services" id="servicos">
         <div class="section-header">
-            <h2 style="color:#2D2D2D">Serviços Especializados</h2>
+            <h2>Serviços Especializados</h2>
             <div class="section-divider"></div>
         </div>
         <div class="services-grid">
-            <!-- Caixa 1: Processos junto à ANM -->
             <div class="service-card">
                 <div class="service-icon"><i class="fas fa-file-signature"></i></div>
-                <h3 style="color:#4A5D45">Processos junto à ANM</h3>
-                <ul style="text-align:left; color:#2D2D2D; margin-top:1rem;">
-                    <li><b style="color:#4A5D45">Relatório Anual de Lavra (RAL)</b></li>
-                    <li><b style="color:#4A5D45">Requerimento de Pesquisa Mineral</b></li>
-                    <li><b style="color:#4A5D45">Requerimento de Lavra</b></li>
+                <h3>Processos junto à ANM</h3>
+                <ul>
+                    <li><b>•</b> Relatório Anual de Lavra (RAL)</li>
+                    <li><b>•</b> Requerimento de Pesquisa Mineral</li>
+                    <li><b>•</b> Requerimento de Lavra</li>
                 </ul>
             </div>
-            <!-- Caixa 2: Processos junto aos Órgãos Ambientais -->
+
             <div class="service-card">
                 <div class="service-icon"><i class="fas fa-leaf"></i></div>
-                <h3 style="color:#4A5D45">Processos junto aos Órgãos Ambientais</h3>
-                <ul style="text-align:left; color:#2D2D2D; margin-top:1rem;">
-                    <li><b style="color:#4A5D45">Licenciamento Ambiental</b></li>
-                    <li><b style="color:#4A5D45">Relatório Anual de Desempenho Ambiental (RADA)</b></li>
-                    <li><b style="color:#4A5D45">Plano/Projeto de Recuperação de Áreas Degradadas (PRAD)</b></li>
-                    <li><b style="color:#4A5D45">Levantamento de Aspectos e Impactos Ambientais (LAIA)</b></li>
-                    <li><b style="color:#4A5D45">EIA / RIMA</b> (Estudo e Relatório de Impacto Ambiental)</li>
-                    <li><b style="color:#4A5D45">PCA</b> (Plano de Controle Ambiental) / Relatório de Controle Ambiental</li>
-                    <li><b style="color:#4A5D45">Elaboração e Implantação de PGRS</b> (Resíduos Sólidos)</li>
-                    <li><b style="color:#4A5D45">Requerimento de Outorga de Uso de Águas</b></li>
+                <h3>Órgãos Ambientais</h3>
+                <ul>
+                    <li><b>•</b> Licenciamento e Outorgas</li>
+                    <li><b>•</b> RADA e PRAD</li>
+                    <li><b>•</b> EIA/RIMA e PCA</li>
+                    <li><b>•</b> Implantação de PGRS</li>
                 </ul>
             </div>
-            <!-- Caixa 3: Processos Jurídicos -->
+
             <div class="service-card">
                 <div class="service-icon"><i class="fas fa-balance-scale"></i></div>
-                <h3 style="color:#4A5D45">Processos Jurídicos</h3>
-                <ul style="text-align:left; color:#2D2D2D; margin-top:1rem;">
-                    <li><b style="color:#4A5D45">Defesa, Suporte e Avaliação Técnica Ambiental</b></li>
-                    <li><b style="color:#4A5D45">Elaboração e Cumprimento de TAC</b> (Termo de Ajustamento de Conduta)</li>
+                <h3>Processos Jurídicos</h3>
+                <ul>
+                    <li><b>•</b> Defesa e Suporte Técnico</li>
+                    <li><b>•</b> Elaboração de TAC</li>
+                    <li><b>•</b> Avaliação Técnica Ambiental</li>
                 </ul>
             </div>
-          <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex flex-col h-full">
-        <div class="h-12 w-12 bg-emerald-100 rounded-lg flex items-center justify-center mb-6">
-          <i class="fas fa-leaf text-emerald-600 text-xl"></i>
+
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-seedling"></i></div>
+                <h3>ESG</h3>
+                <ul>
+                    <li><b>•</b> Relatório RIGEE: Inventário de Gases e Certificação.</li>
+                    <li><b>•</b> Estratégias para engajar equipes na sustentabilidade.</li>
+                </ul>
+            </div>
         </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-4">ESG</h3>
-        <p class="text-gray-600 text-sm mb-6">Sustentabilidade e Governança</p>
-        <ul class="space-y-3 text-sm text-gray-600">
-          <li class="flex items-start gap-3">
-            <span class="text-emerald-500 font-bold">•</span>
-            <span>Elaboração de Relatório do Inventário de Gases de Efeito Estufa - RIGEE com foco em ações de melhoria e Certificação</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <span class="text-emerald-500 font-bold">•</span>
-            <span>Desenvolvimento de estratégias para engajar equipes nos pilares da sustentabilidade corporativa.</span>
-          </li>
-        </ul>
-      </div>
-    </div> </div>
-</section>
-  </section>
-    <!-- About Section -->
+    </section>
+
     <section class="about" id="sobre">
         <div class="about-container">
             <div class="about-content">
-                <h2 style="color:#2D2D2D">Sobre o CEO</h2>
+                <h2>Sobre o CEO</h2>
                 <div class="divider"></div>
-                <p>Com mais de 30 anos de experiência no setor de mineração, siderurgia e indústria, empreendimentos de engenharia de grande porte, com foco em desenvolvimento sustentável, o Engenheiro de Minas Rosan Figueirêdo construiu uma carreira sólida baseada em expertise técnica e visão estratégica.</p>
-                <p>Sua trajetória inclui atuação direta com órgãos ambientais e minerários, especialmente a Agência Nacional de Mineração (ANM), a Secretaria Estadual de Meio Ambiente de Desenvolvimento Sustentável (SEMAD) e o IBAMA, onde desenvolveu profundo conhecimento dos processos administrativos e técnicos necessários para a exploração mineral com responsabilidade socioambiental.</p>
-                <p>Com visão técnica gerencial garante segurança aos seus clientes, parceiros e equipes jurídicas, oferecendo uma parceria que atenda as complexidades do setor mineral, siderúrgico e industrial, e de grandes obras civis.</p>
+                <p>Com mais de 30 anos de experiência, o Engenheiro de Minas Rosan Figueirêdo construiu uma carreira sólida baseada em expertise técnica e visão estratégica.</p>
+                <p>Sua trajetória inclui atuação direta com órgãos como a ANM, SEMAD e IBAMA, garantindo segurança aos seus clientes e parceiros.</p>
             </div>
             <div class="about-image">
-                <div class="about-image-main">
-                    <i class="fas fa-hard-hat"></i>
-                </div>
+                <div class="about-image-main"><i class="fas fa-hard-hat"></i></div>
                 <div class="about-image-badge">
-                    <h4 style="color:#4A5D45">30+</h4>
+                    <h4>30+</h4>
                     <p>Anos de Experiência</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section -->
     <section class="faq" id="faq">
         <div class="section-header">
             <h2>Perguntas Frequentes</h2>
-            <p>Tire suas dúvidas sobre processos minerários e ambientais</p>
             <div class="section-divider"></div>
         </div>
         <div class="faq-container">
@@ -810,80 +674,32 @@
                     <i class="fas fa-chevron-down"></i>
                 </div>
                 <div class="faq-answer">
-                    <p>É o trâmite legal para autorizar a exploração mineral no Brasil. Inclui desde o requerimento inicial de pesquisa até a concessão de lavra, passando por diversas etapas de aprovação técnica e ambiental junto à Agência Nacional de Mineração.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">
-                    <h4>Qual a importância do RAL (Relatório Anual de Lavra)?</h4>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>O RAL é obrigatório para manter o título minerário ativo. A não entrega dentro do prazo pode resultar em multas graves, caducidade do direito de lavra e perda definitiva do ativo mineral. É um documento que demonstra a regularidade da exploração.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">
-                    <h4>Quais são as etapas do licenciamento ambiental?</h4>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>O licenciamento ambiental divide-se em três fases: Licença Prévia (LP) - autorização inicial condicionada; Licença de Instalação (LI) - autorização para obras; e Licença de Operação (LO) - autorização para funcionamento. Cada etapa exige estudos específicos e aprovação dos órgãos competentes.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">
-                    <h4>O que é o Plano de Aproveitamento Econômico (PAE)?</h4>
-                    <i class="fas fa-chevron-down"></i>
-                </div>
-                <div class="faq-answer">
-                    <p>O PAE é um documento técnico obrigatório para a concessão de lavra, que detalha o projeto de explotação mineral, incluindo métodos de lavra, cronograma de atividades, reservas minerárias e aspectos econômicos. É avaliado pela ANM para aprovação do requerimento de lavra.</p>
+                    <p>É o trâmite legal para autorizar a exploração mineral no Brasil, desde o requerimento de pesquisa até a concessão de lavra.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer id="contato">
         <div class="footer-container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <h3><span style="color:#4A5D45">F7</span> Engenharia & Consultoria</h3>
-                    <p>Vamos conversar sobre a segurança e eficiência do seu projeto?</p>
-                    <div class="footer-contact-item">
-                        <i class="fas fa-phone"></i>
-                        <span>(31) 99687-3356</span>
-                    </div>
-                    <div class="footer-contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <span>rosan.figueiredo@yahoo.com.br</span>
-                    </div>
-                    <div class="footer-contact-item">
-                        <i class="fas fa-id-card"></i>
-                        <span>CREA-RJ: 134054/D</span>
-                    </div>
+                    <h3><span>F7</span> Engenharia & Consultoria</h3>
+                    <div class="footer-contact-item"><i class="fas fa-phone"></i> <span>(31) 99687-3356</span></div>
+                    <div class="footer-contact-item"><i class="fas fa-envelope"></i> <span>rosan.figueiredo@yahoo.com.br</span></div>
                 </div>
                 <div class="footer-links">
                     <h4>Serviços</h4>
                     <ul>
                         <li><a href="#servicos">Processos ANM</a></li>
-                        <li><a href="#servicos">Pesquisa Mineral</a></li>
-                        <li><a href="#servicos">Relatório Anual de Lavra</a></li>
                         <li><a href="#servicos">Licenciamento Ambiental</a></li>
-                        <li><a href="#servicos">Indústria e Siderurgia</a></li>
-                        <li><a href="#servicos">Segurança Jurídica & ESG</a></li>
                     </ul>
                 </div>
                 <div class="footer-links">
                     <h4>Links Rápidos</h4>
                     <ul>
                         <li><a href="#servicos">Início</a></li>
-                        <li><a href="#sobre">Sobre o CEO</a></li>
-                        <li><a href="#faq">FAQ</a></li>
-                        <li><a href="#contato">Contato</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
                     </ul>
                 </div>
             </div>
@@ -892,88 +708,30 @@
                 <div class="footer-social">
                     <a href="#"><i class="fab fa-linkedin-in"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <!-- WhatsApp Float Button -->
     <a href="https://wa.me/5531996873356" class="whatsapp-float" target="_blank" rel="noopener noreferrer">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <script>
         // FAQ Accordion
-        const faqItems = document.querySelectorAll('.faq-item');
-
-        faqItems.forEach(item => {
-            const question = item.querySelector('.faq-question');
+        document.querySelectorAll('.faq-question').forEach(question => {
             question.addEventListener('click', () => {
-                // Close other items
-                faqItems.forEach(otherItem => {
-                    if (otherItem !== item) {
-                        otherItem.classList.remove('active');
-                    }
-                });
-                // Toggle current item
+                const item = question.parentElement;
                 item.classList.toggle('active');
             });
         });
 
         // Mobile Menu Toggle
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const navLinks = document.querySelector('.nav-links');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-            if (navLinks.style.display === 'flex') {
-                navLinks.style.flexDirection = 'column';
-                navLinks.style.position = 'absolute';
-                navLinks.style.top = '70px';
-                navLinks.style.left = '0';
-                navLinks.style.right = '0';
-                navLinks.style.background = 'white';
-                navLinks.style.padding = '20px';
-                navLinks.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
-            }
-        });
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-                // Close mobile menu if open
-                if (window.innerWidth <= 768) {
-                    navLinks.style.display = 'none';
-                }
-            });
-        });
-
-        // Navbar background on scroll
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('nav');
-            if (window.scrollY > 50) {
-                nav.style.boxShadow = '0 4px 20px rgba(0,0,0,0.15)';
-            } else {
-                nav.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
-            }
+        document.querySelector('.mobile-menu-btn').addEventListener('click', () => {
+            const nav = document.querySelector('.nav-links');
+            nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+            nav.style.flexDirection = 'column';
         });
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
